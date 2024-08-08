@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colt Tools</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+             background: linear-gradient(75deg, #568bdc, #4ab4cc, #7669cd, #ff8c8c);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        .currency-info {
+            margin-top: 20px;
+        }
+       
+        .currency-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        .currency {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+            margin: 5px;
+        }
+        .currency img {
+            margin-right: 8px;
+        }
+        .currency p {
+            margin: 0;
+        }
+        .button {
+            display: inline-block;
+            margin: 5px;
+            padding: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            color: #fff;
+            background-color: #398be5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .button:hover {
+            background-color: #0b4ba8;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+        .search-container {
+            text-align: center;
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-button:hover {
+            background-color: #11b5db;
+        }
+        .search-button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .duckduckgo-logo {
+            max-width: 150px;
+            margin-bottom: 10px;
+        }
+        .incentive-text {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+        }
+        .container {
+            text-align: center;
+            margin-top: 50px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        input[type="text"], textarea {
+            width: 95%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        label {
+            font-size: 16px;
+        }
+        button {
+            padding: 4px;
+            font-size: 16px;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.1s ease;
+        }
+        button:hover {
+            background-color: #11b5db;
+        }
+         button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .resultado {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            border: 1px solid #ccc;
+	        background-color: #f9f9f9;
+	        border-radius: 5px;
+        }
+        .copy-code {
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            display: inline-block;
+        }
+        .copy-code.clicked {
+            background-color: #f728cd; /*Copiado*/
+        }
+        /* Additional style for UPPERCASE result */
+        .resultado-uppercase {
+            font-size: 18px;
+            margin-top: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        .note {
+            font-size: 18px;
+            color: #131414;
+            text-align: left;
+            margin-top: 10px;
+        }
+        .timer-container {
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .timer {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .timer-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+        }
+        .timer-button:hover {
+            background-color: #11b5db;
+        }
+        .timer-button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .date-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(65% - 10px);
+            text-align: center;
+            box-sizing: border-box;
+        }
+        input[type="date"] {
+            padding: 4px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(35% - 10px);
+            text-align: center;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #dddddd;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="date"]::before {
+            content: attr(placeholder);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #999;
+            pointer-events: none;
+        }
+        input[type="date"]:valid::before {
+            display: none;
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            cursor: pointer;
+            background-color: #398be5;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .calc-button, .copy-code {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+        }
+        .calc-button:hover, .copy-code:hover {
+            background-color: #11b5db;
+        }
+        .calc-button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .copy-code:active {
+            background-color: #ff6b6b;
+        }
+        .copy-code.clicked {
+            background-color: #f728cd; /*Copiado*/
+        }
+        #date-diff-result {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: left;
+            border: 1px solid #ccc;
+        	background-color: #f9f9f9;
+        	border-radius: 5px;
+        }
+         input[type="text"] {
+            padding: 8px;
+            font-size: 16px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(60% - 2px);
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+        }
+
+        .button:hover {
+            background-color: #11b5db;
+        }
+
+        .button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        #numero-por-extenso {
+            margin-top: 20px;
+            font-size: 18px;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            word-wrap: break-word;
+        }
+		
+        #copiar {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #398be5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+        }
+        #copiar:hover {
+            background-color: #11b5db;
+        }
+        #copiar:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        #copiar.copiado {
+            background-color: #f728cd; /*Copiado*/
+        }
+	 
+		.button-container { /*cssRe*/
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .button {
+            display: block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #398be5;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+        }
+        .button:hover {
+            background-color: #11b5db;
+        }
+        .button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .timer-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .timer {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .timer-input {
+            margin-bottom: 10px;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 110px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+        .timer-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #398be5;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+        }
+        .timer-button:hover {
+            background-color: #11b5db;
+        }
+        .timer-button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        .sound-control {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background:#cbcbcb;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .sound-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            padding: 5px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+        .sound-icon:hover {
+            opacity: 0.7;
+        }
+        .sound-enabled {
+            background-color: #8bc34a;
+            border-color: #4CAF50;
+        }
+        .sound-disabled {
+            background-color: #f44336;
+            border-color: #f44336;
+        }
+        .sound-label {
+            margin-right: 10px;
+        }
+        .clear-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #000000;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            padding: 3px;
+            transition: background-color 0.3s ease, box-shadow 0.1s ease;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        .clear-button:hover {
+            background-color: #11b5db;
+        }
+        .clear-button:active {
+            background-color: #ff6b6b;
+            box-shadow: inset 0px 0px 5px rgba(0, 0, 0, 0.2);
+        }
+        #sound-select {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-right: 10px;
+            box-sizing: border-box;
+        }
+        #sound-select:hover {
+            border-color: #398be5;
+        }
+        @media (max-width: 600px) {
+            .sound-control {
+                flex-direction: column;
+                align-items: center;
+            }
+            .sound-control > * {
+                margin-bottom: 10px;
+            }
+            .sound-control > img {
+                margin-bottom: 0;
+            }
+        } /*cssRend*/
+    </style>
+</head>
+<body>
+<!-- DIV Search DuckDuckgo -->
+    <div class="search-container">
+        <img src="https://upload.wikimedia.org/wikipedia/en/9/90/The_DuckDuckGo_Duck.png" alt="DuckDuckGo Logo" class="duckduckgo-logo">
+        <h2>Faça uma pesquisa sem deixar rastros</h2>
+        <input type="text" id="searchInput" class="search-input" placeholder="Pesquisar no DuckDuckGo">
+        <button id="searchButton" class="search-button">Pesquisar</button>
+    </div>
+
+<!-- DIV Cronometro comum -->
+     <div class="container">
+        <h1>Cronometro</h1>
+        <div class="timer-container">
+            <div id="timer" class="timer">00:00:00</div>
+            <div>
+                <button class="timer-button" onclick="startTimer()">Iniciar</button>
+                <button class="timer-button" onclick="pauseTimer()">Pausar</button>
+                <button class="timer-button" onclick="resetTimer()">Zerar</button>
+            </div>
+        </div>
+    </div>
+	
+	<!-- Script Cronometro Comum -->
+   <script>
+        let timerInterval;
+        let totalSeconds = 0;
+        let isRunning = false;
+
+        function startTimer() {
+            if (!isRunning) {
+                isRunning = true;
+                timerInterval = setInterval(() => {
+                    totalSeconds++;
+                    displayTime();
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+        }
+
+        function resetTimer() {
+            isRunning = false;
+            clearInterval(timerInterval);
+            totalSeconds = 0;
+            displayTime();
+            document.title = "Simple Tools";  // Reset the title when timer is reset
+        }
+
+        function displayTime() {
+            const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+            const seconds = String(totalSeconds % 60).padStart(2, '0');
+            const currentTime = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('timer').textContent = currentTime;
+            if (isRunning) {
+                document.title = currentTime;  // Update the title with the current timer
+            }
+        }
+    </script>
+	
+	
+	
+	    <!-- DIV Cronômetro Regressivo -->
+    <div id="cronometro-regressivo" class="container">
+        <h1>Cronômetro Regressivo + Alarme</h1>
+        <div class="timer-container">
+            <div id="countdown" class="timer">00:00:00</div>
+            <div>
+                <input id="hours" class="timer-input" type="number" min="0" placeholder="Horas">
+                <input id="minutes" class="timer-input" type="number" min="0" placeholder="Minutos">
+                <input id="seconds" class="timer-input" type="number" min="0" placeholder="Segundos">
+            </div>
+            <button class="clear-button" onclick="clearInputs()">RESET</button>
+            <div class="button-container">
+                <button class="timer-button" onclick="startCountdown()">Iniciar</button>
+                <button class="timer-button" onclick="pauseCountdown()">Pausar</button>
+                <button class="timer-button" onclick="resetCountdown()">Zerar</button>
+            </div>
+            <div class="sound-control">
+                <span class="sound-label">TOQUE MUSICAL:</span>
+                <select id="sound-select" onchange="playSelectedSound()">
+                    <option value="">SELECIONE</option>
+                    <option value="/tools/assets/urna_eletronica.wav">URNA ELETRONICA</option>
+                    <option value="/tools/assets/Old_Phone_Rings.wav">TELEFONE ANTIGO</option>
+                    <option value="/tools/assets/Boxing_bell_ring_two_times.wav">SINO DE LUTA (GONGO)</option>
+                    <option value="/tools/assets/740423__anthonyrox__message-notification-4.wav">NOTIFICAÇÃO</option>
+                    <option value="/tools/assets/564246__rokzroom__synth-pop-loop-01.wav">MÚSICA ALEATORIA</option>
+                    <option value="/tools/assets/727987__nevak36__airport.mp3">AEROPORTO</option>
+                </select>
+                <label for="repeat-sound">REPETIR:</label>
+                <input id="repeat-sound" type="checkbox">
+                <img id="sound-icon" class="sound-icon sound-enabled" src="/tools/assets/volume.png" alt="Som Ativado" onclick="toggleSound()">
+            </div>
+        </div>
+    </div>
+<!-- Script Cronômetro Regressivo -->
+    <script>
+        let countdownInterval;
+        let countdownSeconds = 0;
+        let isCountdownRunning = false;
+        let isSoundEnabled = true; // Mudança aqui
+        let audio;
+
+        function startCountdown() {
+            if (isCountdownRunning) return;
+
+            const hours = parseInt(document.getElementById('hours').value) || 0;
+            const minutes = parseInt(document.getElementById('minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('seconds').value) || 0;
+
+            countdownSeconds = hours * 3600 + minutes * 60 + seconds;
+
+            if (countdownSeconds <= 0) {
+                alert('Por favor, insira um tempo válido.');
+                return;
+            }
+
+            isCountdownRunning = true;
+            countdownInterval = setInterval(() => {
+                countdownSeconds--;
+                if (countdownSeconds >= 0) {
+                    displayCountdown(countdownSeconds);
+                } else {
+                    clearInterval(countdownInterval);
+                    if (isSoundEnabled) {
+                        playAlarm();
+                    }
+                    isCountdownRunning = false;
+                }
+            }, 1000);
+        }
+
+        function pauseCountdown() {
+            clearInterval(countdownInterval);
+            stopSound();
+            isCountdownRunning = false;
+        }
+
+        function resetCountdown() {
+            clearInterval(countdownInterval);
+            stopSound();
+            isCountdownRunning = false;
+            countdownSeconds = 0;
+            displayCountdown(countdownSeconds);
+        }
+
+        function displayCountdown(seconds) {
+            const hours = String(Math.floor(seconds / 3600)).padStart(2, '0');
+            const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+            const remainingSeconds = String(seconds % 60).padStart(2, '0');
+            const countdownTime = `${hours}:${minutes}:${remainingSeconds}`;
+            document.getElementById('countdown').textContent = countdownTime;
+            document.title = countdownTime; // Atualizar o título da página com o countdown
+        }
+
+        function toggleSound() {
+            const soundIcon = document.getElementById('sound-icon');
+            isSoundEnabled = !isSoundEnabled;
+            if (isSoundEnabled) {
+                soundIcon.classList.remove('sound-disabled');
+                soundIcon.classList.add('sound-enabled');
+                soundIcon.src = '/tools/assets/volume.png';
+            } else {
+                soundIcon.classList.remove('sound-enabled');
+                soundIcon.classList.add('sound-disabled');
+                soundIcon.src = '/tools/assets/mute.png';
+                stopSound();
+            }
+        }
+
+        function playAlarm() {
+            stopSound(); // Parar qualquer som anterior antes de tocar o alarme
+            const selectedSound = document.getElementById('sound-select').value;
+            audio = new Audio(selectedSound);
+            audio.loop = document.getElementById('repeat-sound').checked; // Repetir o som continuamente se o checkbox estiver marcado
+            audio.play();
+        }
+
+        function playSelectedSound() {
+            stopSound(); // Parar qualquer som anterior antes de tocar o novo som
+            if (!isSoundEnabled) return;
+            const selectedSound = document.getElementById('sound-select').value;
+            audio = new Audio(selectedSound);
+            audio.play();
+        }
+
+        function stopSound() {
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0; // Reiniciar o som para o início
+            }
+        }
+
+        function clearInputs() {
+            document.getElementById('hours').value = '';
+            document.getElementById('minutes').value = '';
+            document.getElementById('seconds').value = '';
+        }
+    </script>
+    <div class="container">
+        <h1>MAIÚSCULAS e minúsculas com Um Clique</h1>
+           <div class="note">NOTA: Capitalizar torna a primeira letra de cada palavra maiúsculas e deixar as outras letras em minúsculas</div>
+        <div class="input-container">
+            <textarea id="textToTransform" placeholder="Cole o texto aqui"></textarea>
+            <label for="removerAcentosTransform">Remover Acentuação</label>
+            <input type="checkbox" id="removerAcentosTransform" unchecked>
+            <label for="removeSpacesTransform">Remover Todos os Espaços</label>
+            <input type="checkbox" id="removeSpacesTransform">
+        </div>
+        <button onclick="transformToUppercase()">MAIÚSCULAS</button>
+        <button onclick="transformToLowercase()">minúsculas</button>
+        <button onclick="capitalizeWords()">Capitalizar Palavras</button>
+        <div class="resultado" id="result-transform"></div>
+        <button class="copy-code" onclick="copyCode('result-transform')">Copiar</button>
+    </div>
+    <div class="container">
+        <h1>Remover Acentos, Espaços e Caracteres Especiais</h1>
+        <div class="note">NOTA: Customize o processamento de texto selecionando as opções abaixo.</div>
+        <div class="input-container">
+            <textarea id="textToRemoveSpaces" placeholder="Cole o texto aqui"></textarea>
+            <label for="removeAccentsSpaces">Remover Acentuação</label>
+            <input type="checkbox" id="removeAccentsSpaces" unchecked>
+            <label for="removeSpacesSpaces">Remover Todos os Espaços</label>
+            <input type="checkbox" id="removeSpacesSpaces" unchecked>
+            <label for="removeSpecialChars">Remover Caracteres Especiais</label>
+            <input type="checkbox" id="removeSpecialChars" unchecked>
+            <label for="removeLettersSpaces">Remover Letras</label>
+            <input type="checkbox" id="removeLettersSpaces" unchecked>
+            <label for="removeNumbersSpaces">Remover Números</label>
+            <input type="checkbox" id="removeNumbersSpaces">
+        </div>
+        <button onclick="removeAccentsSpacesSpecialChars()">PROCESSAR</button>
+        <div class="resultado" id="result-spaces"></div>
+        <button class="copy-code" onclick="copyCode('result-spaces')">Copiar </button>
+    </div>
+    <div class="container">
+        <h1>Calcule entre duas datas</h1>
+        <div class="date-container">
+            <input type="text" id="start-date-text" placeholder="Cole, digite ou selecione ao lado →" onblur="syncDate('start')" oninput="formatDate(this)">
+            <input type="date" id="start-date" placeholder="Selecionar no Calendário →" onchange="syncText('start')">
+        </div>
+        <div class="date-container">
+            <input type="text" id="end-date-text" placeholder="Cole, digite ou selecione ao lado →" onblur="syncDate('end')" oninput="formatDate(this)">
+            <input type="date" id="end-date" placeholder="Selecionar no Calendário →" onchange="syncText('end')">
+        </div>
+        <button class="calc-button" onclick="calculateDateDiff()">Calcular Período</button>
+        <div id="date-diff-result"></div>
+        <button class="copy-code" onclick="copyCode('date-diff-result')">Copiar</button>
+    </div>
+
+    <script>
+        function removeAccents(str) {
+            return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+        }
+
+        function transformToUppercase() {
+            const textToTransformInput = document.getElementById("textToTransform");
+            const removeAccentsCheckbox = document.getElementById("removerAcentosTransform");
+            const removeSpacesCheckbox = document.getElementById("removeSpacesTransform");
+            const resultDiv = document.getElementById("result-transform");
+
+            let text = textToTransformInput.value;
+            if (removeAccentsCheckbox.checked) {
+                text = removeAccents(text);
+            }
+
+            if (removeSpacesCheckbox.checked) {
+                text = text.replace(/\s+/g, "");
+            }
+
+            const uppercaseText = text.toUpperCase();
+
+            resultDiv.textContent = uppercaseText;
+        }
+
+        function transformToLowercase() {
+            const textToTransformInput = document.getElementById("textToTransform");
+            const removeAccentsCheckbox = document.getElementById("removerAcentosTransform");
+            const removeSpacesCheckbox = document.getElementById("removeSpacesTransform");
+            const resultDiv = document.getElementById("result-transform");
+
+            let text = textToTransformInput.value;
+            if (removeAccentsCheckbox.checked) {
+                text = removeAccents(text);
+            }
+
+            if (removeSpacesCheckbox.checked) {
+                text = text.replace(/\s+/g, "");
+            }
+
+            const lowercaseText = text.toLowerCase();
+
+            resultDiv.textContent = lowercaseText;
+        }
+
+        function capitalizeWords() {
+            const textToTransformInput = document.getElementById("textToTransform");
+            const removeAccentsCheckbox = document.getElementById("removerAcentosTransform");
+            const removeSpacesCheckbox = document.getElementById("removeSpacesTransform");
+            const resultDiv = document.getElementById("result-transform");
+
+            let text = textToTransformInput.value;
+            if (removeAccentsCheckbox.checked) {
+                text = removeAccents(text);
+            }
+
+            if (removeSpacesCheckbox.checked) {
+                text = text.replace(/\s+/g, "");
+            }
+
+            const words = text.split(" ");
+
+            const capitalizedWords = words.map(word => {
+                return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+            });
+
+            const resultText = capitalizedWords.join(" ");
+
+            resultDiv.textContent = resultText;
+        }
+
+        function removeAccentsSpacesSpecialChars() {
+            const textToRemoveSpacesInput = document.getElementById("textToRemoveSpaces");
+            const removeAccentsSpacesCheckbox = document.getElementById("removeAccentsSpaces");
+            const removeSpacesSpacesCheckbox = document.getElementById("removeSpacesSpaces");
+            const removeSpecialCharsCheckbox = document.getElementById("removeSpecialChars");
+            const removeLettersCheckbox = document.getElementById("removeLettersSpaces");
+            const removeNumbersCheckbox = document.getElementById("removeNumbersSpaces");
+            const resultDiv = document.getElementById("result-spaces");
+
+            let text = textToRemoveSpacesInput.value;
+            if (removeAccentsSpacesCheckbox.checked) {
+                text = removeAccents(text);
+            }
+
+            if (removeSpacesSpacesCheckbox.checked) {
+                text = text.replace(/\s+/g, "");
+            }
+
+            if (removeSpecialCharsCheckbox.checked) {
+                text = text.replace(/[^\w\s]/g, "");
+            }
+
+            if (removeLettersCheckbox.checked) {
+                text = text.replace(/[a-zA-Z]/g, "");
+            }
+
+            if (removeNumbersCheckbox.checked) {
+                text = text.replace(/[0-9]/g, "");
+            }
+
+            resultDiv.textContent = text;
+        }
+
+     function copyCode(elementId) {
+    const resultElement = document.getElementById(elementId);
+    const textArea = document.createElement("textarea");
+    textArea.value = resultElement.textContent;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+
+    const copyButton = resultElement.nextElementSibling;
+    const originalText = copyButton.textContent;
+
+    copyButton.textContent = "Copiado!";
+    copyButton.classList.add("clicked");
+
+    setTimeout(() => {
+        copyButton.textContent = originalText;
+        copyButton.classList.remove("clicked");
+    }, 2000);
+}
+    </script>
+	
+	
+	
+	<!-- Script calc entre datas -->
+      <script>
+        function syncDate(type) {
+            let textInput = document.getElementById(type + '-date-text');
+            let dateInput = document.getElementById(type + '-date');
+            let dateValue = textInput.value.replace(/[^0-9\/]/g, '');
+            let parts = dateValue.split('/');
+
+            if (parts.length === 3) {
+                let day = parts[0].padStart(2, '0');
+                let month = parts[1].padStart(2, '0');
+                let year = parts[2].padStart(4, '0');
+                let formattedDate = `${year}-${month}-${day}`;
+                dateInput.value = formattedDate;
+                textInput.value = `${day}/${month}/${year}`;
+            }
+        }
+
+        function syncText(type) {
+            let dateInput = document.getElementById(type + '-date');
+            let textInput = document.getElementById(type + '-date-text');
+            let dateValue = dateInput.value;
+
+            if (dateValue) {
+                let [year, month, day] = dateValue.split('-');
+                textInput.value = `${day}/${month}/${year}`;
+            }
+        }
+
+        function formatDate(input) {
+            let value = input.value.replace(/\D/g, '');
+            if (value.length > 8) {
+                value = value.slice(0, 8);
+            }
+            if (value.length > 4) {
+                value = value.replace(/(\d{2})(\d{2})(\d{4})/, '$1/$2/$3');
+            } else if (value.length > 2) {
+                value = value.replace(/(\d{2})(\d{2})/, '$1/$2');
+            }
+            input.value = value;
+        }
+
+        function calculateDateDiff() {
+            const startDateText = document.getElementById('start-date-text').value;
+            const endDateText = document.getElementById('end-date-text').value;
+            const resultDiv = document.getElementById('date-diff-result');
+
+            // Verifica se ambos os campos foram preenchidos
+            if (!startDateText || !endDateText) {
+                resultDiv.textContent = "Por favor, insira ambas as datas.";
+                return;
+            }
+
+            // Extrai dia, mês e ano das datas
+            const startDateParts = startDateText.split('/');
+            const endDateParts = endDateText.split('/');
+
+            // Verifica se o formato é dd/mm/yyyy
+            if (startDateParts.length !== 3 || endDateParts.length !== 3) {
+                resultDiv.textContent = "Por favor, insira ambas as datas no formato correto.";
+                return;
+            }
+
+            // Converte para o formato yyyy-mm-dd para criar objetos Date
+            const startDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
+            const endDate = new Date(`${endDateParts[2]}-${endDateParts[1]}-${endDateParts[0]}`);
+
+            // Verifica se as datas são válidas
+            if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
+                resultDiv.textContent = "Por favor, insira ambas as datas no formato correto.";
+                return;
+            }
+
+            // Calcula a diferença em milissegundos
+            const diffTime = Math.abs(endDate - startDate);
+
+            // Calcula dias e horas
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            const diffHours = diffDays * 24;
+            const diffMinutes = diffHours * 60;
+            const diffSeconds = diffMinutes * 60;
+
+            // Calcula anos, meses, semanas e dias
+            let years = endDate.getFullYear() - startDate.getFullYear();
+            let months = endDate.getMonth() - startDate.getMonth();
+            let days = endDate.getDate() - startDate.getDate();
+
+            if (days < 0) {
+                months--;
+                const prevMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0).getDate();
+                days += prevMonth;
+            }
+            if (months < 0) {
+                years--;
+                months += 12;
+            }
+
+            const weeks = Math.floor(days / 7);
+            days = days % 7;
+
+            // Função para formatar números com pontos
+            function formatNumber(number) {
+                return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            }
+
+            // Exibe o resultado
+            resultDiv.innerHTML = `
+                Período: ${years} ano(s), ${months} mês(es), ${weeks} semana(s), ${days} dia(s).<br>
+                Total em meses: ${formatNumber(years * 12 + months)} mês(es).<br>
+                Total em semanas: ${formatNumber(Math.floor(diffDays / 7))} semana(s).<br>
+                Total em dias: ${formatNumber(diffDays)} dia(s).<br>
+                Total em horas: ${formatNumber(diffHours)} hora(s).<br>
+                Total em minutos: ${formatNumber(diffMinutes)} minuto(s).<br>
+                Total em segundos: ${formatNumber(diffSeconds)} segundo(s).
+            `;
+        }
+
+        function copyCode(elementId) {
+            const codeToCopy = document.getElementById(elementId).innerText;
+            const tempTextarea = document.createElement("textarea");
+            tempTextarea.value = codeToCopy;
+            document.body.appendChild(tempTextarea);
+            tempTextarea.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempTextarea);
+
+            const copyButton = document.querySelector(`button[onclick="copyCode('${elementId}')"]`);
+            copyButton.textContent = "Copiado!";
+            copyButton.classList.add("clicked");
+
+            setTimeout(() => {
+                copyButton.textContent = "Copiar";
+                copyButton.classList.remove("clicked");
+            }, 2000);
+        }
+    </script>
+	<!-- DIV Números por Extenso -->
+      <div class="container">
+        <h1>Número por Extenso</h1>
+         <input type="text" id="numero-input" placeholder="Digite um número" maxlength="16" oninput="limparInput(this)">  <!-- no maximo dez quatrilhões -->
+        <button class="button" onclick="converterNumero()">Por extenso!</button>
+        <div id="numero-por-extenso"></div>
+        <button id="copiar" onclick="copiarNumero()">Copiar</button>
+    </div>
+	<script>
+    function limparInput(input) {
+        setTimeout(() => {
+            input.value = input.value.replace(/[^0-9]/g, '');
+        }, 0);
+    }
+</script>
+
+
+<!-- Script Números por Extenso -->
+ <script>
+        function limparInput(input) {
+            setTimeout(() => {
+                input.value = input.value.replace(/[^0-9]/g, '');
+            }, 0);
+        }
+
+        function converterNumero() {
+            const numeroInput = document.getElementById('numero-input').value.trim();
+            const numero = parseFloat(numeroInput.replace(/[^0-9.-]/g, '').replace(',', '.'));
+
+            const resultadoDiv = document.getElementById('numero-por-extenso');
+
+            if (!numeroInput || isNaN(numero)) {
+                resultadoDiv.textContent = 'Por favor, digite um número válido.';
+                return;
+            }
+
+            const numeroPorExtenso = numeroParaExtenso(numero);
+            resultadoDiv.textContent = `Número por extenso: ${numeroPorExtenso}`;
+        }
+
+        function numeroParaExtenso(numero) {
+            const unidades = ['', 'um', 'dois', 'três', 'quatro', 'cinco', 'seis', 'sete', 'oito', 'nove'];
+            const dezAteDezenove = ['dez', 'onze', 'doze', 'treze', 'quatorze', 'quinze', 'dezesseis', 'dezessete', 'dezoito', 'dezenove'];
+            const dezenas = ['', '', 'vinte', 'trinta', 'quarenta', 'cinquenta', 'sessenta', 'setenta', 'oitenta', 'noventa'];
+            const centenas = ['', 'cento', 'duzentos', 'trezentos', 'quatrocentos', 'quinhentos', 'seiscentos', 'setecentos', 'oitocentos', 'novecentos'];
+            const milharesSingulares = ['', 'mil', 'milhão', 'bilhão', 'trilhão', 'quatrilhão', 'quintilhão', 'sextilhão', 'septilhão', 'octilhão', 'nonilhão', 'decilhão'];
+            const milharesPlurais = ['', 'mil', 'milhões', 'bilhões', 'trilhões', 'quatrilhões', 'quintilhões', 'sextilhões', 'septilhões', 'octilhões', 'nonilhões', 'decilhões'];
+
+            if (numero === 0) {
+                return 'zero';
+            }
+
+            if (numero < 0) {
+                return 'menos ' + numeroParaExtenso(Math.abs(numero));
+            }
+
+            let numeroPorExtenso = '';
+            let milharAtual = 0;
+
+            while (numero > 0) {
+                let grupo = numero % 1000;
+                numero = Math.floor(numero / 1000);
+
+                if (grupo > 0) {
+                    let extensoGrupo = '';
+
+                    if (grupo >= 100) {
+                        let centena = Math.floor(grupo / 100);
+                        extensoGrupo += centenas[centena];
+                        grupo %= 100;
+
+                        if (grupo > 0) {
+                            extensoGrupo += ' e ';
+                        }
+                    }
+
+                    if (grupo >= 20) {
+                        let dezena = Math.floor(grupo / 10);
+                        extensoGrupo += dezenas[dezena];
+                        grupo %= 10;
+
+                        if (grupo > 0) {
+                            extensoGrupo += ' e ';
+                        }
+                    } else if (grupo >= 10) {
+                        extensoGrupo += dezAteDezenove[grupo - 10];
+                        grupo = 0;
+                    }
+
+                    if (grupo > 0) {
+                        extensoGrupo += unidades[grupo];
+                    }
+
+                    if (milharAtual > 0 && extensoGrupo !== '') {
+                        extensoGrupo += ' ' + (extensoGrupo === 'um' ? milharesSingulares[milharAtual] : milharesPlurais[milharAtual]);
+                    }
+
+                    if (numeroPorExtenso !== '') {
+                        numeroPorExtenso = extensoGrupo + ', ' + numeroPorExtenso;
+                    } else {
+                        numeroPorExtenso = extensoGrupo;
+                    }
+                }
+
+                milharAtual++;
+            }
+
+            return numeroPorExtenso;
+        }
+
+        function copiarNumero() {
+            const resultadoDiv = document.getElementById('numero-por-extenso');
+            const textoParaCopiar = resultadoDiv.textContent.trim();
+
+            if (textoParaCopiar === '' || textoParaCopiar.includes('Por favor')) {
+                resultadoDiv.textContent = 'Não há número por extenso para copiar.';
+                return;
+            }
+
+            navigator.clipboard.writeText(textoParaCopiar).then(() => {
+                const copiarBotao = document.getElementById('copiar');
+                copiarBotao.textContent = 'Copiado!';
+                copiarBotao.classList.add('copiado');
+                setTimeout(() => {
+                    copiarBotao.textContent = 'Copiar';
+                    copiarBotao.classList.remove('copiado');
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar número por extenso: ', err);
+                resultadoDiv.textContent = 'Erro ao copiar número por extenso. Por favor, copie manualmente.';
+            });
+        }
+    </script>
+	
+	<!-- Container div cotacoes -->
+	
+	 <div class="container">
+        <h2>Cotações (Turístico)</h2>
+        <div class="currency-container">
+            <div class="currency"><img src="us.svg" width="20" alt="EUA"><p id="usd-rate">Dólar: R$ --.--</p></div>
+            <div class="currency"><img src="eu.svg" width="20" alt="Europa"><p id="eur-rate">Euro: R$ --.--</p></div>
+            <div class="currency"><img src="btc.svg" width="20" alt="Bitcoin"><p id="btc-rate">Bitcoin: R$ --.--</p></div>
+            <div class="currency"><img src="ca.svg" width="20" alt="Canadá"><p id="cad-rate">Dólar Canadense: R$ --.--</p></div>
+            <div class="currency"><img src="gb.svg" width="20" alt="Reino Unido"><p id="gbp-rate">Libra: R$ --.--</p></div>
+            <div class="currency"><img src="mx.svg" width="20" alt="México"><p id="mxn-rate">Peso Mexicano: R$ --.--</p></div>
+            <div class="currency"><img src="ar.svg" width="20" alt="Argentina"><p id="ars-rate">Peso Argentino: R$ --.--</p></div>
+        </div>
+    </div>
+
+<!-- Script cotacoes -->
+<script>
+    async function fetchExchangeRates() {
+        const apiURL = 'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,CAD-BRL,GBP-BRL,MXN-BRL,ARS-BRL,BTC-BRL';
+
+        try {
+            const response = await fetch(apiURL);
+            const data = await response.json();
+
+            document.getElementById('usd-rate').textContent = `Dólar: R$ ${parseFloat(data.USDBRL.bid).toFixed(2)}`;
+            document.getElementById('eur-rate').textContent = `Euro: R$ ${parseFloat(data.EURBRL.bid).toFixed(2)}`;
+            document.getElementById('btc-rate').textContent = `Bitcoin: R$ ${parseFloat(data.BTCBRL.bid).toFixed(2)}`;
+            document.getElementById('cad-rate').textContent = `Dólar Canadense: R$ ${parseFloat(data.CADBRL.bid).toFixed(2)}`;
+            document.getElementById('gbp-rate').textContent = `Libra: R$ ${parseFloat(data.GBPBRL.bid).toFixed(2)}`;
+            document.getElementById('mxn-rate').textContent = `Peso Mexicano: R$ ${parseFloat(data.MXNBRL.bid).toFixed(2)}`;
+            document.getElementById('ars-rate').textContent = `Peso Argentino: R$ ${parseFloat(data.ARSBRL.bid).toFixed(2)}`;
+        } catch (error) {
+            console.error('Erro ao obter cotações:', error);
+            alert('Não foi possível obter as cotações. Tente novamente mais tarde.');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchExchangeRates();
+    });
+</script>
+
+</body>
+</html>
+

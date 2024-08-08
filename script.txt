@@ -1,0 +1,34 @@
+<script>
+    async function fetchExchangeRates() {
+        const apiURL = 'https://economia.awesomeapi.com.br/last/USD-BRL,EUR-BRL,CAD-BRL,GBP-BRL,MXN-BRL,ARS-BRL,BTC-BRL';
+
+        try {
+            const response = await fetch(apiURL);
+            const data = await response.json();
+
+            document.getElementById('usd-rate').textContent = `Dólar: R$ ${parseFloat(data.USDBRL.bid).toFixed(2)}`;
+            document.getElementById('eur-rate').textContent = `Euro: R$ ${parseFloat(data.EURBRL.bid).toFixed(2)}`;
+            document.getElementById('btc-rate').textContent = `Bitcoin: R$ ${parseFloat(data.BTCBRL.bid).toFixed(2)}`;
+            document.getElementById('cad-rate').textContent = `Dólar Canadense: R$ ${parseFloat(data.CADBRL.bid).toFixed(2)}`;
+            document.getElementById('gbp-rate').textContent = `Libra: R$ ${parseFloat(data.GBPBRL.bid).toFixed(2)}`;
+            document.getElementById('mxn-rate').textContent = `Peso Mexicano: R$ ${parseFloat(data.MXNBRL.bid).toFixed(2)}`;
+            document.getElementById('ars-rate').textContent = `Peso Argentino: R$ ${parseFloat(data.ARSBRL.bid).toFixed(2)}`;
+        } catch (error) {
+            console.error('Erro ao obter cotações:', error);
+            alert('Não foi possível obter as cotações. Tente novamente mais tarde.');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        fetchExchangeRates();
+    });
+</script>
+
+
+
+
+
+
+
+
+
